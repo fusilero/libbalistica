@@ -20,10 +20,14 @@ libbalistica = shared_library ( 'balistica',
     'conversion/Temperature.vala'
   ],
   version: meson.project_version(),
+  vala_gir: meson.project_name() + '-' + meson.project_version() + '.gir',
+  vala_vapi: meson.project_name() + '.vapi',
+  vala_header: meson.project_name() + '.h',
   dependencies: [ glib_dep, gee_dep ],
   c_args: [ '-g' ],
   link_args: ['-lm'],
-  install: true
+  install: true,
+  install_dir: [true, true, true, true],
 )
 
 pkg.generate(
