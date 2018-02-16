@@ -10,8 +10,8 @@
 mkdir build
 meson . build/
 cd build
-ninja build
-ninja install
+ninja
+sudo ninja install
 ```
 
 ## Ubuntu
