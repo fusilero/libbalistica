@@ -1,5 +1,10 @@
 # libbalistica
 
+## Minimum Requirements
+* vala >= 0.36.8
+* glib-2.0 >= 2.40.0
+* gee-0.8 >= 0.20.0
+
 ## Build & Install
 ```bash
 mkdir build
