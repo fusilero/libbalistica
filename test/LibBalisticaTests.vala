@@ -63,14 +63,14 @@ public class LibBalisticaTests : AbstractTestCase {
    }
 
    public virtual void test_zero_calculation() {
-	  double G1 = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.G1, 0.465, 2650, 1.6, 200, 0);
-	  double G2 = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.G2, 0.465, 2650, 1.6, 200, 0);
-	  double G5 = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.G5, 0.465, 2650, 1.6, 200, 0);
-	  double G6 = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.G6, 0.465, 2650, 1.6, 200, 0);
-	  double G7 = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.G7, 0.465, 2650, 1.6, 200, 0);
-	  double G8 = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.G8, 0.465, 2650, 1.6, 200, 0);
-	  double I = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.I, 0.465, 2650, 1.6, 200, 0);
-	  double B = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.B, 0.465, 2650, 1.6, 200, 0);
+	  double G1 = LibBalistica.Zero.ZeroAngle (LibBalistica.DragFunction.G1, 0.465, 2650, 1.6, 200, 0) ;
+	  double G2 = LibBalistica.Zero.ZeroAngle (LibBalistica.DragFunction.G2, 0.465, 2650, 1.6, 200, 0) ;
+	  double G5 = LibBalistica.Zero.ZeroAngle (LibBalistica.DragFunction.G5, 0.465, 2650, 1.6, 200, 0) ;
+	  double G6 = LibBalistica.Zero.ZeroAngle (LibBalistica.DragFunction.G6, 0.465, 2650, 1.6, 200, 0) ;
+	  double G7 = LibBalistica.Zero.ZeroAngle (LibBalistica.DragFunction.G7, 0.465, 2650, 1.6, 200, 0) ;
+	  double G8 = LibBalistica.Zero.ZeroAngle (LibBalistica.DragFunction.G8, 0.465, 2650, 1.6, 200, 0) ;
+	  double I = LibBalistica.Zero.ZeroAngle (LibBalistica.DragFunction.I, 0.465, 2650, 1.6, 200, 0) ;
+	  double B = LibBalistica.Zero.ZeroAngle (LibBalistica.DragFunction.B, 0.465, 2650, 1.6, 200, 0) ;
 
 	  assert (G1 == 0.0998687744140625) ;
 	  assert (G2 == 0.095596313476562514) ;
