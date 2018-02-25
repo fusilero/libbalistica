@@ -4,21 +4,24 @@ vala_args = [
   '--enable-checking',
 ]
 
+lib_sources = files([
+  'Atmosphere.vala',
+  'Greenhill.vala',
+  'Miller.vala',
+  'Retard.vala',
+  'Solve.vala',
+  'Zero.vala',
+  'LibBalistica.vala',
+  'Pbr.vala',
+  'Solution.vala',
+  'Windage.vala',
+  'conversion/Mass.vala',
+  'conversion/Angle.vala',
+  'conversion/Temperature.vala'
+])
+
 libbalistica = shared_library ( 'balistica',
-  [ 'Atmosphere.vala',
-    'Greenhill.vala',
-    'Miller.vala',
-    'Retard.vala',
-    'Solve.vala',
-    'Zero.vala',
-    'LibBalistica.vala',
-    'Pbr.vala',
-    'Solution.vala',
-    'Windage.vala',
-    'conversion/Mass.vala',
-    'conversion/Angle.vala',
-    'conversion/Temperature.vala'
-  ],
+  lib_sources,
   version: meson.project_version(),
   vala_gir: meson.project_name() + '-' + meson.project_version() + '.gir',
   vala_vapi: meson.project_name() + '.vapi',
@@ -40,4 +43,8 @@ pkg.generate(
     'gobject-2.0',
     'gee-0.8',
   ],
+)
+
+lib_dep = declare_dependency(
+    sources: lib_sources
 )

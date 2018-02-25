@@ -1,5 +1,5 @@
 /* Copyright (C) 2009 Julien Peeters
- * Copyright (C) 2016-2017 Steven Oliver
+ * Copyright (C) 2016-2018 Steven Oliver
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -15,6 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
+
 void main(string[] args) {
    Test.init (ref args) ;
 

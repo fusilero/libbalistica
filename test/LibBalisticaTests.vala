@@ -1,4 +1,4 @@
-/* Copyright 2016-2017 Steven Oliver <oliver.steven@gmail.com>
+/* Copyright 2016-2018 Steven Oliver <oliver.steven@gmail.com>
  *
  * This file is part of balística.
  *
@@ -16,7 +16,7 @@
  * along with balística.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class LibBalisticaTests : Balistica.TestCase {
+public class LibBalisticaTests : AbstractTestCase {
    public LibBalisticaTests () {
 	  base ("LibBalistica") ;
 	  add_test ("[LibBalistica] Verify gravity", test_gravity) ;

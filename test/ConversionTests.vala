@@ -1,4 +1,4 @@
-/* Copyright 2016-2017 Steven Oliver <oliver.steven@gmail.com>
+/* Copyright 2016-2018 Steven Oliver <oliver.steven@gmail.com>
  *
  * This file is part of balística.
  *
@@ -16,7 +16,7 @@
  * along with balística.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class ConversionTests : Balistica.TestCase {
+public class ConversionTests : AbstractTestCase {
    public ConversionTests () {
 	  base ("Conversion") ;
 	  add_test ("[Angle] Degree to MOA", test_degree_to_moa) ;
