@@ -23,6 +23,7 @@ public class LibBalisticaTests : AbstractTestCase {
 	  add_test ("[LibBalistica] Verify standard pressure", test_standard_pressure) ;
 	  add_test ("[LibBalistica] Verify standard tempurature", test_standard_tempurature) ;
 	  add_test ("[LibBalistica] Verify computational unit", test_computation_unit) ;
+	  add_test ("[LibBalistica] Verify Zero calculation", test_zero_calculation) ;
    }
 
    public virtual void test_gravity() {
@@ -59,6 +60,26 @@ public class LibBalisticaTests : AbstractTestCase {
 	  assert (unit.velocity_com == 5.7) ;
 	  assert (unit.horizontal_velocity == 5.8) ;
 	  assert (unit.vertical_velocity == 5.9) ;
+   }
+
+   public virtual void test_zero_calculation() {
+	  double G1 = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.G1, 0.465, 2650, 1.6, 200, 0);
+	  double G2 = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.G2, 0.465, 2650, 1.6, 200, 0);
+	  double G5 = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.G5, 0.465, 2650, 1.6, 200, 0);
+	  double G6 = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.G6, 0.465, 2650, 1.6, 200, 0);
+	  double G7 = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.G7, 0.465, 2650, 1.6, 200, 0);
+	  double G8 = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.G8, 0.465, 2650, 1.6, 200, 0);
+	  double I = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.I, 0.465, 2650, 1.6, 200, 0);
+	  double B = LibBalistica.Zero.ZeroAngle(LibBalistica.DragFunction.B, 0.465, 2650, 1.6, 200, 0);
+
+	  assert (G1 == 0.0998687744140625) ;
+	  assert (G2 == 0.095596313476562514) ;
+	  assert (G5 == 0.0968780517578125) ;
+	  assert (G6 == 0.0960235595703125) ;
+	  assert (G7 == 0.095596313476562514) ;
+	  assert (G8 == 0.0958099365234375) ;
+	  assert (I == 0.10029602050781251) ;
+	  assert (B == 0.1000823974609375) ;
    }
 
 }
