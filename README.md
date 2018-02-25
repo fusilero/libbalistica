@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/steveno/libbalistica.svg?branch=master)](https://travis-ci.org/steveno/libbalistica)
 
 ## Minimum Requirements
-* vala >= 0.36.8
+* vala >= 0.36.12
 * glib-2.0 >= 2.40.0
 * gee-0.8 >= 0.20.0
 
