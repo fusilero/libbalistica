@@ -19,38 +19,38 @@
 public class ConversionTests : AbstractTestCase {
    public ConversionTests () {
 	  base ("Conversion") ;
-	  add_test ("[Angle] Degree to MOA", test_degree_to_moa) ;
-	  add_test ("[Angle] Degree to Radian", test_degree_to_radian) ;
-	  add_test ("[Angle] Radian to Degree", test_radian_to_degree) ;
-	  add_test ("[Angle] Radian to MOA", test_radian_to_moa) ;
-	  add_test ("[Angle] MOA to Degree", test_moa_to_degree) ;
-	  add_test ("[Angle] MOA to Radian", test_moa_to_radian) ;
+	  add_test ("Angle Degree to MOA", test_degree_to_moa) ;
+	  add_test ("Angle Degree to Radian", test_degree_to_radian) ;
+	  add_test ("Angle Radian to Degree", test_radian_to_degree) ;
+	  add_test ("Angle Radian to MOA", test_radian_to_moa) ;
+	  add_test ("Angle MOA to Degree", test_moa_to_degree) ;
+	  add_test ("Angle MOA to Radian", test_moa_to_radian) ;
 
-	  add_test ("[Mass] Grain to Pound", test_grain_to_pound) ;
-	  add_test ("[Mass] Grain to Ounce", test_grain_to_ounce) ;
-	  add_test ("[Mass] Grain to Miligram", test_grain_to_miligram) ;
-	  add_test ("[Mass] Miligram to Grain", test_miligram_to_grain) ;
-	  add_test ("[Mass] Miligram to Pound", test_miligram_to_pound) ;
-	  add_test ("[Mass] Miligram to Ounce", test_miligram_to_ounce) ;
-	  add_test ("[Mass] Pound to Grain", test_pound_to_grain) ;
-	  add_test ("[Mass] Pound to Miligram", test_pound_to_miligram) ;
-	  add_test ("[Mass] Pound to Ounce", test_pound_to_ounce) ;
-	  add_test ("[Mass] Ounce to Grain", test_ounce_to_grain) ;
-	  add_test ("[Mass] Ounce to Miligram", test_ounce_to_miligram) ;
-	  add_test ("[Mass] Ounce to Pound", test_ounce_to_pound) ;
+	  add_test ("Mass Grain to Pound", test_grain_to_pound) ;
+	  add_test ("Mass Grain to Ounce", test_grain_to_ounce) ;
+	  add_test ("Mass Grain to Miligram", test_grain_to_miligram) ;
+	  add_test ("Mass Miligram to Grain", test_miligram_to_grain) ;
+	  add_test ("Mass Miligram to Pound", test_miligram_to_pound) ;
+	  add_test ("Mass Miligram to Ounce", test_miligram_to_ounce) ;
+	  add_test ("Mass Pound to Grain", test_pound_to_grain) ;
+	  add_test ("Mass Pound to Miligram", test_pound_to_miligram) ;
+	  add_test ("Mass Pound to Ounce", test_pound_to_ounce) ;
+	  add_test ("Mass Ounce to Grain", test_ounce_to_grain) ;
+	  add_test ("Mass Ounce to Miligram", test_ounce_to_miligram) ;
+	  add_test ("Mass Ounce to Pound", test_ounce_to_pound) ;
 
-	  add_test ("[Temp] Fahrenheit to Kelvin", test_fahrenheit_to_kelvin) ;
-	  add_test ("[Temp] Fahrenheit to Celsius", test_fahrenheit_to_celsius) ;
-	  add_test ("[Temp] Fahrenheit to Rankine", test_fahrenheit_to_rankine) ;
-	  add_test ("[Temp] Kelvin to Fahrenheit", test_kelvin_to_fahrenheit) ;
-	  add_test ("[Temp] Kelvin to Celsius", test_kelvin_to_celsius) ;
-	  add_test ("[Temp] Kelvin to Rankine", test_kelvin_to_rankine) ;
-	  add_test ("[Temp] Celsius to Fahrenheit", test_celsius_to_fahrenheit) ;
-	  add_test ("[Temp] Celsius to Kelvin", test_celsius_to_kelvin) ;
-	  add_test ("[Temp] Celsius to Rankine", test_celsius_to_rankine) ;
-	  add_test ("[Temp] Rankine to Fahrenheit", test_rankine_to_fahrenheit) ;
-	  add_test ("[Temp] Rankine to Celsius", test_rankine_to_celsius) ;
-	  add_test ("[Temp] Rankine to Kelvin", test_rankine_to_kelvin) ;
+	  add_test ("Temp Fahrenheit to Kelvin", test_fahrenheit_to_kelvin) ;
+	  add_test ("Temp Fahrenheit to Celsius", test_fahrenheit_to_celsius) ;
+	  add_test ("Temp Fahrenheit to Rankine", test_fahrenheit_to_rankine) ;
+	  add_test ("Temp Kelvin to Fahrenheit", test_kelvin_to_fahrenheit) ;
+	  add_test ("Temp Kelvin to Celsius", test_kelvin_to_celsius) ;
+	  add_test ("Temp Kelvin to Rankine", test_kelvin_to_rankine) ;
+	  add_test ("Temp Celsius to Fahrenheit", test_celsius_to_fahrenheit) ;
+	  add_test ("Temp Celsius to Kelvin", test_celsius_to_kelvin) ;
+	  add_test ("Temp Celsius to Rankine", test_celsius_to_rankine) ;
+	  add_test ("Temp Rankine to Fahrenheit", test_rankine_to_fahrenheit) ;
+	  add_test ("Temp Rankine to Celsius", test_rankine_to_celsius) ;
+	  add_test ("Temp Rankine to Kelvin", test_rankine_to_kelvin) ;
    }
 
    /*

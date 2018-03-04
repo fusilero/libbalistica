@@ -19,8 +19,8 @@
 public class MillerTests : AbstractTestCase {
    public MillerTests () {
 	  base ("Miller") ;
-	  add_test ("[Twist] Calculate twist", test_calc_twist) ;
-	  add_test ("[Stability] Calculate stability", test_calc_stability) ;
+	  add_test ("Twist Calculate twist", test_calc_twist) ;
+	  add_test ("Stability Calculate stability", test_calc_stability) ;
    }
 
    public virtual void test_calc_twist() {

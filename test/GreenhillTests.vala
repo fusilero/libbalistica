@@ -19,7 +19,7 @@
 public class GreenhillTests : AbstractTestCase {
    public GreenhillTests () {
 	  base ("Greenhill") ;
-	  add_test ("[Twist] Calculate twist", test_calc_twist) ;
+	  add_test ("Twist Calculate twist", test_calc_twist) ;
    }
 
    public virtual void test_calc_twist() {
