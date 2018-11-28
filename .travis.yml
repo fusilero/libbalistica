@@ -3,8 +3,5 @@ language: generic
 services:
   - docker
 
-env:
-  - DEPENDENCY_PACKAGES="git meson valac libgee-0.8 ninja-build"
-
 before-install:
   - docker build -t steveno/libbalistica .
