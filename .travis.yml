@@ -7,4 +7,4 @@ before-install:
   - docker build -t oliversteven/libbalistica .
 
 script:
-  - docker run -d oliversteveno/libbaistica /bin/sh -c "cd libbalistica/build/test && ./libbalistica-test"
+  - docker run -d oliversteveno/libbalistica /bin/sh -c "cd libbalistica/build/test && ./libbalistica-test"
