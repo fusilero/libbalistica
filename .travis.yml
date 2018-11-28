@@ -6,11 +6,8 @@ services:
 env:
   - DEPENDENCY_PACKAGES="git meson valac libgee-0.8 ninja-build"
 
-install:
-  - docker pull ubuntu:bionic
+before-install:
+  - docker build -t steveno/libbalistica .
 
 script:
-  - ./run "apt-get update && apt-get -y install $DEPENDENCY_PACKAGES"
-  - ./run "git clone https://github.com/steveno/libbalistica.git"
-  - ./run "cd libbalistica && mkdir build && meson . build/ && cd build && ninja"
-  - ./run "test/libbalistica-test"
+  - test/libbalistica-test
