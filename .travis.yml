@@ -4,4 +4,7 @@ services:
   - docker
 
 before-install:
-  - docker build -t steveno/libbalistica .
+  - docker build -t oliversteven/libbalistica .
+
+script:
+  - docker run -d oliversteveno/libbaistica /bin/sh -c "cd libbalistica/build/test && ./libbalistica-test"
