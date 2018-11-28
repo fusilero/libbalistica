@@ -8,6 +8,3 @@ env:
 
 before-install:
   - docker build -t steveno/libbalistica .
-
-script:
-  - test/libbalistica-test
