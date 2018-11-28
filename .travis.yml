@@ -4,8 +4,13 @@ services:
   - docker
 
 env:
-  - DEPENDENCY_PACKAGES="meson valac libgee-0.8 ninja-build"
+  - DEPENDENCY_PACKAGES="git meson valac libgee-0.8 ninja-build"
 
 install:
   - docker pull ubuntu:bionic
-  - docker run -v "$PWD":/tmp/build-dir ubuntu:bionic /bin/sh -c "apt-get update && apt-get -y install git valac libgee-0.8 python3-pip ninja-build meson && git clone https://github.com/steveno/libbalistica.git && cd libbalistica && mkdir build && meson . build/ && cd build && ninja && test/libbalistica-test"
+
+script:
+  - ./run "apt-get update && apt-get -y install $DEPENDENCY_PACKAGES"
+  - ./run "git clone https://github.com/steveno/libbalistica.git"
+  - ./run "cd libbalistica && mkdir build && meson . build/ && cd build && ninja"
+  - ./run "test/libbalistica-test"
