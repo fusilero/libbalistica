@@ -70,6 +70,59 @@ public struct PbrResult {
 }
 
 /**
+ *
+ */
+public enum PropellentGasVelocity {
+	hpr = 1,
+	sal,
+	slb,
+	pr;
+
+	public string to_string()
+	{
+		switch (this)
+		{
+		case hpr:
+			return ("High powered rifle");
+
+		case sal:
+			return ("Shotgun - average length");
+
+		case slb:
+			return ("Shotgun - long barrel");
+
+		case pr:
+			return ("Pistol & revolers");
+
+		default:
+			assert_not_reached();
+		}
+	}
+
+
+	public double to_double()
+	{
+		switch (this)
+		{
+		case hpr:
+			return (1.75);
+
+		case sal:
+			return (1.50);
+
+		case slb:
+			return (1.25);
+
+		case pr:
+			return (1.50);
+
+		default:
+			assert_not_reached();
+		}
+	}
+}
+
+/**
  * The different drag functions you are allowed to pick from
  */
 public enum DragFunction {
