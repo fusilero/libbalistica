@@ -21,122 +21,124 @@
  * License Version 2 by Derek Yates.
  */
 
-namespace LibBalistica{
-   public class Zero : GLib.Object {
-	  /**
-	   * ZeroAngle
-	   *
-	   * A function to determine the bore angle needed to achieve a target zero at Range yards
-	   * (at standard conditions and on level ground.)
-	   *
-	   * @param DragFunction The drag function to use (G1, G2, G3, G5, G6, G7, G8)
-	   * @param DragCoefficient The coefficient of drag for the projectile, for the supplied drag function.
-	   * @param Vi The initial velocity of the projectile, in feet/s
-	   * @param SightHeight The height of the sighting system above the bore centerline, in inches.
-	   *              Most scopes fall in the 1.6 to 2.0 inch range.
-	   * @param ZeroRange The range in yards, at which you wish the projectile to intersect yIntercept.
-	   * @param yIntercept The height, in inches, you wish for the projectile to be when it crosses ZeroRange yards.
-	   *             This is usually 0 for a target zero, but could be any number.  For example if you wish
-	   *             to sight your rifle in 1.5 inches high at 100 yds, then you would set yIntercept to 1.5,
-	   *             and ZeroRange to 100
-	   *
-	   * @return The angle of the bore relative to the sighting system, in degrees.
-	   */
-	  public static double ZeroAngle(DragFunction drag, double DragCoefficient, double Vi, double SightHeight, double ZeroRange, double yIntercept) {
-		 // Numerical Integration variables
-		 double t = 0 ;
-		 // The solution accuracy generally doesn't suffer if its within a foot for each second of time
-		 double dt = 1 / Vi ;
-		 double y = -SightHeight / 12 ;
-		 double x = 0 ;
-		 // The change in the bore angle used to iterate in on the correct zero angle
-		 // Start with a very coarse angular change, to quickly solve even large launch angle problems
-		 double da = Angle.DegreeToRadian (14) ;
+namespace LibBalistica {
+public class Zero : GLib.Object {
+	/**
+	 * ZeroAngle
+	 *
+	 * A function to determine the bore angle needed to achieve a target zero at Range yards
+	 * (at standard conditions and on level ground.)
+	 *
+	 * @param DragFunction The drag function to use (G1, G2, G3, G5, G6, G7, G8)
+	 * @param DragCoefficient The coefficient of drag for the projectile, for the supplied drag function.
+	 * @param Vi The initial velocity of the projectile, in feet/s
+	 * @param SightHeight The height of the sighting system above the bore centerline, in inches.
+	 *              Most scopes fall in the 1.6 to 2.0 inch range.
+	 * @param ZeroRange The range in yards, at which you wish the projectile to intersect yIntercept.
+	 * @param yIntercept The height, in inches, you wish for the projectile to be when it crosses ZeroRange yards.
+	 *             This is usually 0 for a target zero, but could be any number.  For example if you wish
+	 *             to sight your rifle in 1.5 inches high at 100 yds, then you would set yIntercept to 1.5,
+	 *             and ZeroRange to 100
+	 *
+	 * @return The angle of the bore relative to the sighting system, in degrees.
+	 */
+	public static double ZeroAngle(DragFunction drag, double DragCoefficient, double Vi, double SightHeight, double ZeroRange, double yIntercept)
+	{
+		// Numerical Integration variables
+		double t = 0;
+		// The solution accuracy generally doesn't suffer if its within a foot for each second of time
+		double dt = 1 / Vi;
+		double y = -SightHeight / 12;
+		double x = 0;
+		// The change in the bore angle used to iterate in on the correct zero angle
+		// Start with a very coarse angular change, to quickly solve even large launch angle problems
+		double da = Angle.DegreeToRadian(14);
 
-		 // State variables for each integration
-		 // Velocity
-		 double v = 0, vx = 0, vy = 0 ;
-		 // Last frame's velocity, used for computing average velocity
-		 double vx1 = 0, vy1 = 0 ;
-		 // Acceleration
-		 double dv = 0, dvx = 0, dvy = 0 ;
-		 // Gravitational acceleration
-		 double Gx = 0, Gy = 0 ;
+		// State variables for each integration
+		// Velocity
+		double v = 0, vx = 0, vy = 0;
+		// Last frame's velocity, used for computing average velocity
+		double vx1 = 0, vy1 = 0;
+		// Acceleration
+		double dv = 0, dvx = 0, dvy = 0;
+		// Gravitational acceleration
+		double Gx = 0, Gy = 0;
 
-		 // The actual angle of the bore
-		 double angle = 0 ;
+		// The actual angle of the bore
+		double angle = 0;
 
-		 bool quit = false ;
+		bool quit = false;
 
-		 // The general idea here is to start at 0 degrees elevation, and increase the elevation by
-		 // 14 degrees until we are above the correct elevation.  Then reduce the angular change by half,
-		 // and begin reducing the angle.  Once we are again below the correct angle, reduce the angular
-		 // change by half again, and go back up.  This allows for a fast successive approximation of the
-		 // correct elevation, usually within less than 20 iterations.
-		 for( angle = 0 ; quit == false ; angle = angle + da ){
-			vy = Vi * Math.sin (angle) ;
-			vx = Vi * Math.cos (angle) ;
-			Gx = GRAVITY * Math.sin (angle) ;
-			Gy = GRAVITY * Math.cos (angle) ;
+		// The general idea here is to start at 0 degrees elevation, and increase the elevation by
+		// 14 degrees until we are above the correct elevation.  Then reduce the angular change by half,
+		// and begin reducing the angle.  Once we are again below the correct angle, reduce the angular
+		// change by half again, and go back up.  This allows for a fast successive approximation of the
+		// correct elevation, usually within less than 20 iterations.
+		for (angle = 0; quit == false; angle = angle + da)
+		{
+			vy = Vi * Math.sin(angle);
+			vx = Vi * Math.cos(angle);
+			Gx = GRAVITY * Math.sin(angle);
+			Gy = GRAVITY * Math.cos(angle);
 
-			debug ("vy: %f", vy) ;
-			debug ("vx: %f", vx) ;
-			debug ("Gx: %f", Gx) ;
-			debug ("Gy: %f", Gy) ;
+			debug("vy: %f", vy);
+			debug("vx: %f", vx);
+			debug("Gx: %f", Gx);
+			debug("Gy: %f", Gy);
 
-			for( t = 0, x = 0, y = -SightHeight / 12 ; x <= ZeroRange * 3 ; t = t + dt ){
-			   vy1 = vy ;
-			   vx1 = vx ;
-			   v = Math.pow ((Math.pow (vx, 2) + Math.pow (vy, 2)), 0.5) ;
-			   debug ("v: %f", v) ;
-			   dt = 1 / v ;
+			for (t = 0, x = 0, y = -SightHeight / 12; x <= ZeroRange * 3; t = t + dt)
+			{
+				vy1 = vy;
+				vx1 = vx;
+				v = Math.pow((Math.pow(vx, 2) + Math.pow(vy, 2)), 0.5);
+				debug("v: %f", v);
+				dt = 1 / v;
 
-			   dv = Retard.CalcRetard (drag, DragCoefficient, v) ;
-			   dvy = -dv * vy / v * dt ;
-			   dvx = -dv * vx / v * dt ;
-			   debug ("dvy: %f", dvy) ;
-			   debug ("dvx: %f", dvx) ;
+				dv = Retard.CalcRetard(drag, DragCoefficient, v);
+				dvy = -dv * vy / v * dt;
+				dvx = -dv * vx / v * dt;
+				debug("dvy: %f", dvy);
+				debug("dvx: %f", dvx);
 
-			   vy += (dvy + dt * Gy) ;
-			   vx += (dvx + dt * Gx) ;
+				vy += (dvy + dt * Gy);
+				vx += (dvx + dt * Gx);
 
-			   x += (dt * (vx + vx1) / 2) ;
-			   y += (dt * (vy + vy1) / 2) ;
+				x += (dt * (vx + vx1) / 2);
+				y += (dt * (vy + vy1) / 2);
 
-			   // Break early to save CPU time if we won't find a solution
-			   if((vy < 0) && (y < yIntercept)){
-				  break ;
-			   }
+				// Break early to save CPU time if we won't find a solution
+				if ((vy < 0) && (y < yIntercept)) {
+					break;
+				}
 
-			   if( vy > 3 * vx ){
-				  break ;
-			   }
+				if (vy > 3 * vx) {
+					break;
+				}
 			}
 
-			if((y > yIntercept) && (da > 0)){
-			   da = -da / 2 ;
+			if ((y > yIntercept) && (da > 0)) {
+				da = -da / 2;
 			}
 
-			if((y < yIntercept) && (da < 0)){
-			   da = -da / 2 ;
+			if ((y < yIntercept) && (da < 0)) {
+				da = -da / 2;
 			}
 
 			// If our accuracy is sufficient, we can stop approximating
-			if( Math.fabs (da) < Angle.MOAToRadian (0.01)){
-			   quit = true ;
+			if (Math.fabs(da) < Angle.MOAToRadian(0.01)) {
+				quit = true;
 			}
 
 			// If we exceed the 45 degree launch angle, then the projectile just
 			// won't get there, so stop trying
-			if( angle > Angle.DegreeToRadian (45)){
-			   quit = true ;
+			if (angle > Angle.DegreeToRadian(45)) {
+				quit = true;
 			}
-		 }
+		}
 
-		 // Convert to degrees for return value.
-		 debug ("angle: %f", angle) ;
-		 return Angle.RadianToDegree (angle) ;
-	  }
-
-   }
+		// Convert to degrees for return value.
+		debug("angle: %f", angle);
+		return (Angle.RadianToDegree(angle));
+	}
+}
 } // namespace
