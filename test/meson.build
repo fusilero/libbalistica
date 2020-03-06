@@ -2,6 +2,7 @@ test_name = meson.project_name() + '-test'
 
 test_sources = files([
   'ConversionTests.vala',
+  'FreeRecoilTests.vala',
   'LibBalisticaTests.vala',
   'MillerTests.vala',
   'GreenhillTests.vala',

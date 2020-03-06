@@ -6,6 +6,7 @@ vala_args = [
 
 lib_sources = files([
   'Atmosphere.vala',
+  'FreeRecoil.vala',
   'Greenhill.vala',
   'Miller.vala',
   'Retard.vala',
