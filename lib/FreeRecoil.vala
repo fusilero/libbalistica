@@ -29,7 +29,7 @@ public class FreeRecoil : GLib.Object {
 	 *
 	 * @return The free recoil energy in ft-lb.
 	 */
-	internal static double CalcFreeRecoil(double EjectaWeight, double EjectaVelocity, double PropellentWeight, PropellentGasVelocity PGVelocity, double FirearmWeight)
+	public static double CalcFreeRecoil(double EjectaWeight, double EjectaVelocity, double PropellentWeight, PropellentGasVelocity PGVelocity, double FirearmWeight)
 	{
 		double M = FirearmWeight / -(GRAVITY * 2);
 		double V = ((EjectaWeight * EjectaVelocity) + (PropellentWeight * PGVelocity.to_double())) / Mass.PoundToGrain(FirearmWeight);

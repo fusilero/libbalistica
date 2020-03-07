@@ -20,7 +20,7 @@ public class FreeRecoilTests : AbstractTestCase {
 	public FreeRecoilTests()
 	{
 		base("FreeRecoil");
-		add_test("FreeRecoil Calculate free recoil", test_calc_freerecoil);
+		add_test("Calculate free recoil", test_calc_freerecoil);
 	}
 
 

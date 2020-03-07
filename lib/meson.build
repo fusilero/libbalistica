@@ -1,6 +1,5 @@
 vala_args = [ 
   '--target-glib', glib_min_version,
-  '--thread',
   '--enable-checking',
 ]
 
