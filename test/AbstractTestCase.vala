@@ -2,6 +2,7 @@
  * From http://esite.ch/2012/06/26/writing-tests-for-vala/
  */
 protected abstract class AbstractTestCase : Object {
+
 	private GLib.TestSuite suite;
 	private Adaptor[] adaptors = new Adaptor[0];
 
