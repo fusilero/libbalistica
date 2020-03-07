@@ -15,7 +15,6 @@ before_install:
   - sudo pip3 install meson
 
 script:
-  - cd libbalistica/ && mkdir build
-  - meson . build/
+  - mkdir build && meson . build/
   - cd build && ninja
   - test/libbalistica-test
