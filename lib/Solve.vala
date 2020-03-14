@@ -99,7 +99,7 @@ public class Solve : GLib.Object {
 					time = t + dt,
 					windage_in = wind_tmp,
 					// Windage is in inches but range x is in feet
-					windage_moa = Angle.RadianToMOA(Math.atan(wind_tmp / 12 * x)),
+					windage_moa = Angle.RadianToMOA(Math.atan(wind_tmp / (12 * x))),
 					velocity_com = v,
 					horizontal_velocity = vx,
 					vertical_velocity = vy
