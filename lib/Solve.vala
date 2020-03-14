@@ -79,7 +79,9 @@ public class Solve : GLib.Object {
 			dt = 0.5 / v;
 
 			// Compute acceleration using the drag function retardation
-			dv = Retard.CalcRetard(drag, DragCoefficient, v + headwind);
+			// The headwind is in miles per hour but v is in feet per second, so
+			// we have to convert headwind to match.
+			dv = Retard.CalcRetard(drag, DragCoefficient, v + headwind * 5280.0 / 3600.0);
 			dvx = -(vx / v) * dv;
 			dvy = -(vy / v) * dv;
 
@@ -96,7 +98,8 @@ public class Solve : GLib.Object {
 					correction = -Angle.RadianToMOA(Math.atan(y / x)),
 					time = t + dt,
 					windage_in = wind_tmp,
-					windage_moa = Angle.RadianToMOA(Math.atan(wind_tmp)),
+					// Windage is in inches but range x is in feet
+					windage_moa = Angle.RadianToMOA(Math.atan(wind_tmp / 12 * x)),
 					velocity_com = v,
 					horizontal_velocity = vx,
 					vertical_velocity = vy
