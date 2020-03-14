@@ -31,7 +31,7 @@ public class Windage : GLib.Object {
 	 *
 	 * @return The amount of windage correction, in inches, required to achieve zero on a target at the given range.
 	 */
-	internal static double CalcWindage(double WindSpeed, double Vi, double xx, double t)
+	internal inline static double CalcWindage(double WindSpeed, double Vi, double xx, double t)
 	{
 		// Convert to inches per second
 		double Vw = WindSpeed * 17.60;
@@ -49,7 +49,7 @@ public class Windage : GLib.Object {
 	 *
 	 * @return HeadWind
 	 */
-	internal static double HeadWind(double WindSpeed, double WindAngle)
+	internal inline static double HeadWind(double WindSpeed, double WindAngle)
 	{
 		double Wangle = Angle.DegreeToRadian(WindAngle);
 
@@ -71,7 +71,7 @@ public class Windage : GLib.Object {
 	 *
 	 * @return The headwind or crosswind velocity component, in mi/hr.
 	 */
-	internal static double CrossWind(double WindSpeed, double WindAngle)
+	internal inline static double CrossWind(double WindSpeed, double WindAngle)
 	{
 		double Wangle = Angle.DegreeToRadian(WindAngle);
 
