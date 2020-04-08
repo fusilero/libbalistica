@@ -1,5 +1,5 @@
 # libbalistica
-[![Build Status](https://travis-ci.org/steveno/libbalistica.svg?branch=master)](https://travis-ci.org/steveno/libbalistica)
+[![Build Status](https://travis-ci.org/fusilero/libbalistica.svg?branch=master)](https://travis-ci.org/fusilero/libbalistica)
 
 ## Minimum Requirements
 * vala >= 0.36.12
