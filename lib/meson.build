@@ -15,6 +15,7 @@ lib_sources = files([
   'Pbr.vala',
   'Solution.vala',
   'Windage.vala',
+  'Thornhill.vala',
   'conversion/Mass.vala',
   'conversion/Angle.vala',
   'conversion/Temperature.vala'
