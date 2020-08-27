@@ -25,7 +25,7 @@ public class FreeRecoil : GLib.Object {
 	 * @param EjectaVelocity Velocity of the ejecta in feet per second.
 	 * @param PropellentWeight Weight of propellent in grains.
 	 * @param PropellentGasVelocity Velocity of propellent gases in feet per second.
-	 * @param FirearmWeight Weigh of firearm in pounds.
+	 * @param FirearmWeight Weight of firearm in pounds.
 	 *
 	 * @return The free recoil energy in ft-lb.
 	 */
