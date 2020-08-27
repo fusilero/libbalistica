@@ -1,13 +1,14 @@
 test_name = meson.project_name() + '-test'
 
 test_sources = files([
+  'AbstractTestCase.vala',
   'ConversionTests.vala',
   'FreeRecoilTests.vala',
+  'GreenhillTests.vala',
   'LibBalisticaTests.vala',
   'MillerTests.vala',
-  'GreenhillTests.vala',
+  'SectionalDensityTests.vala',
   'TestRunner.vala',
-  'AbstractTestCase.vala',
 ])
 
 tests = executable(
